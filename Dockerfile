@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.4-cli-alpine
 
 # Install laravel requirement PHP package
 RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS libzip-dev sqlite-dev \
@@ -11,8 +11,3 @@ ENV COMPOSER_HOME /composer
 ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
-
-EXPOSE 1215
-
-CMD php artisan swoole:http start
-
