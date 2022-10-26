@@ -1,4 +1,4 @@
-FROM php:7.4-cli-alpine
+FROM php:7.4-fpm-alpine
 
 # Install laravel requirement PHP package
 RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS libzip-dev sqlite-dev \
